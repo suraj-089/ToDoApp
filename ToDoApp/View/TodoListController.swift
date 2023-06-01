@@ -44,7 +44,7 @@ class TodoListController: UIViewController {
             addTask.isHidden = true
         }
     }
-  
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
@@ -77,8 +77,8 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
         cell.todo = vm.todoAtIndex(indexPath.row)
         let todo = vm.todoAtIndex(indexPath.row)
         
-        if todo.completedTask == false {
-            cell.completedTapped = {
+        cell.completedTapped = {
+            if todo.completedTask == false {
                 self.vm.completeTaskAtIndex(indexPath.row) { (_) in
                     tableView.reloadData()
                 }
@@ -99,7 +99,6 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
                 else{
                     self.addTask.isHidden = true
                 }
-               
             }))
             alertController.addAction(UIAlertAction(title: StringConstants.no, style: .default, handler: nil))
             self.present(alertController, animated: true)
