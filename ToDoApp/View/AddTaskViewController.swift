@@ -69,7 +69,9 @@ class AddTaskViewController: UIViewController {
         }
         let vm = AddNewTaskViewModel(name: taskName.text ?? "No Task", dueDate: time.date, time: taskSchedule)
             DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+                vm.saveTask { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
     }
 

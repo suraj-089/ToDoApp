@@ -23,7 +23,7 @@ class TodoListViewModel {
     }
     
     func refreshData() {
-        self.todos = CoreDataManager.shared.getAllTodos()
+        self.todos = CoreDataManager.shared.getAllTodos().filter({$0.name != ""})
     }
     
     func completeTaskAtIndex(_ index: Int, completion: @escaping (Bool) -> Void) {

@@ -12,6 +12,7 @@ class TodoListController: UIViewController {
     //MARK: - IBOutlets and Variables
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var height: NSLayoutConstraint!
+    @IBOutlet weak var addTask: UILabel!
     let vm = TodoListViewModel()
     
     //MARK: - LifeCycle Methods
@@ -36,8 +37,14 @@ class TodoListController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         vm.refreshData()
+        if CoreDataManager.shared.getAllTodos().count == 0{
+            addTask.isHidden = false
+        }
+        else{
+            addTask.isHidden = true
+        }
     }
-    
+  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
@@ -86,6 +93,12 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
                 }
                 self.tableView.reloadData()
                 self.height?.constant = 50*(CGFloat(self.vm.count))
+                if self.vm.count == 0{
+                    self.addTask.isHidden = false
+                }
+                else{
+                    self.addTask.isHidden = true
+                }
                
             }))
             alertController.addAction(UIAlertAction(title: StringConstants.no, style: .default, handler: nil))

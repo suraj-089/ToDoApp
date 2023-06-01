@@ -35,6 +35,12 @@
                                     <action selector="addTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="02O-Ah-Tub"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is0-3D-e36">
+                                <rect key="frame" x="174.5" y="467.5" width="65" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,10 +50,13 @@
                             <constraint firstItem="4dH-DP-MmN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="adu-S1-7Lv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4dH-DP-MmN" secondAttribute="trailing" constant="20" id="ou5-BP-CNM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq6-h4-iyY" secondAttribute="trailing" constant="20" id="r1X-gJ-ycc"/>
+                            <constraint firstItem="is0-3D-e36" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wjo-jc-nZ6"/>
+                            <constraint firstItem="is0-3D-e36" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zQO-Xl-pDH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task List" id="MYx-El-quz"/>
                     <connections>
+                        <outlet property="addTask" destination="is0-3D-e36" id="wLV-2k-mNe"/>
                         <outlet property="height" destination="RsB-48-ngg" id="Dgq-hb-sLV"/>
                         <outlet property="tableView" destination="4dH-DP-MmN" id="sCZ-xW-Is1"/>
                     </connections>
