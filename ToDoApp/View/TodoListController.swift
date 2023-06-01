@@ -77,6 +77,7 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
         cell.todo = vm.todoAtIndex(indexPath.row)
         let todo = vm.todoAtIndex(indexPath.row)
         
+        //On tap of complete
         cell.completedTapped = {
             if todo.completedTask == false {
                 self.vm.completeTaskAtIndex(indexPath.row) { (_) in
@@ -85,6 +86,7 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        //On tap of delete
         cell.deletedTapped = {
             let alertController = UIAlertController(title: StringConstants.alert, message: StringConstants.deleteWarning, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: StringConstants.yes, style: .default, handler: { (_) in
