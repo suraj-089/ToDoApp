@@ -24,10 +24,10 @@
                                 </constraints>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq6-h4-iyY">
-                                <rect key="frame" x="338" y="820" width="56" height="56"/>
+                                <rect key="frame" x="324" y="816" width="50" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ODb-bU-vpT"/>
-                                    <constraint firstAttribute="width" constant="56" id="zSc-Z7-19V"/>
+                                    <constraint firstAttribute="height" constant="40" id="ODb-bU-vpT"/>
+                                    <constraint firstAttribute="width" constant="50" id="zSc-Z7-19V"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="FAB"/>
@@ -45,16 +45,42 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="pq6-h4-iyY" secondAttribute="bottom" constant="20" id="Ghd-0S-LpY"/>
+                            <constraint firstAttribute="bottom" secondItem="pq6-h4-iyY" secondAttribute="bottom" constant="40" id="Ghd-0S-LpY"/>
                             <constraint firstItem="4dH-DP-MmN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="IZg-sT-Njv"/>
                             <constraint firstItem="4dH-DP-MmN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="adu-S1-7Lv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4dH-DP-MmN" secondAttribute="trailing" constant="20" id="ou5-BP-CNM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq6-h4-iyY" secondAttribute="trailing" constant="20" id="r1X-gJ-ycc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq6-h4-iyY" secondAttribute="trailing" constant="40" id="r1X-gJ-ycc"/>
                             <constraint firstItem="is0-3D-e36" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wjo-jc-nZ6"/>
                             <constraint firstItem="is0-3D-e36" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zQO-Xl-pDH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Task List" id="MYx-El-quz"/>
+                    <navigationItem key="navigationItem" title="Task List" id="MYx-El-quz">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="piE-Tl-bGo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zcT-5J-Nac">
+                                <rect key="frame" x="20" y="0.0" width="54" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icons8-sort-24"/>
+                                <connections>
+                                    <action selector="sortTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjw-b6-RtP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Vq-Mc-bMv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Hw6-TZ-XB8">
+                                <rect key="frame" x="340" y="0.0" width="54" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Enq-eS-kky"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Filter"/>
+                                <connections>
+                                    <action selector="filterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Er7-EA-GPJ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addTask" destination="is0-3D-e36" id="wLV-2k-mNe"/>
                         <outlet property="height" destination="RsB-48-ngg" id="Dgq-hb-sLV"/>
@@ -226,9 +252,11 @@
     </scenes>
     <resources>
         <image name="FAB" width="78" height="78"/>
+        <image name="Filter" width="30" height="30"/>
         <image name="Primary button" width="76" height="40"/>
         <image name="Secondary button" width="102" height="40"/>
         <image name="Trailing icon" width="18" height="18"/>
+        <image name="icons8-sort-24" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

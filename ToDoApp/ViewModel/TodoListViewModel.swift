@@ -14,6 +14,14 @@ class TodoListViewModel {
         return todos.count
     }
     
+    var completedCount: Int {
+        return todos.filter({$0.completedTask == true}).count
+    }
+    
+    var pendingCount: Int {
+        return todos.filter({$0.completedTask == false}).count
+    }
+    
     init() {
         self.refreshData()
     }
@@ -24,6 +32,22 @@ class TodoListViewModel {
     
     func refreshData() {
         self.todos = CoreDataManager.shared.getAllTodos().filter({$0.name != ""})
+    }
+    
+    func sortByName() {
+        self.todos = CoreDataManager.shared.getAllTodos().filter({$0.name != ""}).sorted(by: {$0.name! < $1.name!})
+    }
+    
+    func sortByDate() {
+        self.todos = CoreDataManager.shared.getAllTodos().filter({$0.name != ""}).sorted(by: {$0.dueOn! < $1.dueOn!})
+    }
+    
+    func completedTask() {
+        self.todos = CoreDataManager.shared.getAllTodos().filter({$0.completedTask == true})
+    }
+    
+    func pendingTask() {
+        self.todos = CoreDataManager.shared.getAllTodos().filter({$0.completedTask == false})
     }
     
     func completeTaskAtIndex(_ index: Int, completion: @escaping (Bool) -> Void) {
@@ -37,4 +61,6 @@ class TodoListViewModel {
             completion(true)
         }
     }
+    
+    
 }

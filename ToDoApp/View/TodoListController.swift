@@ -60,10 +60,86 @@ class TodoListController: UIViewController {
         navigateToAddTask()
     }
     
+    
+    @IBAction func sortTapped(_ sender: Any) {
+        onSortTapped()
+    }
+
+    @IBAction func filterTapped(_ sender: Any) {
+        onFilterTapped()
+    }
+    
+    //MARK: - Helpers
     private func navigateToAddTask(){
         let storyBoard: UIStoryboard = UIStoryboard(name: ViewControllerConstants.main, bundle: nil)
         let home = storyBoard.instantiateViewController(withIdentifier: ViewControllerConstants.addTaskVC) as! AddTaskViewController
         navigationController?.pushViewController(home, animated: true);
+    }
+    
+    private func onSortTapped(){
+        let alert = UIAlertController(title: StringConstants.sort, message: StringConstants.sortOption, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: StringConstants.time, style: .default , handler:{ (UIAlertAction)in
+            self.vm.sortByDate()
+            self.tableView.reloadData()
+            self.height?.constant = 50*(CGFloat(self.vm.count))
+            self.showNoTask(totalTasks: self.vm.count)
+        }))
+        
+        alert.addAction(UIAlertAction(title: StringConstants.name, style: .default , handler:{ (UIAlertAction)in
+            self.vm.sortByName()
+            self.tableView.reloadData()
+            self.height?.constant = 50*(CGFloat(self.vm.count))
+            self.showNoTask(totalTasks: self.vm.completedCount)
+        }))
+        
+        alert.addAction(UIAlertAction(title: StringConstants.cancelAction, style: .default , handler:{ (UIAlertAction)in
+            self.dismiss(animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: {
+        })
+    }
+    
+    private func onFilterTapped(){
+        let alert = UIAlertController(title: StringConstants.filter, message: StringConstants.filterOption, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: StringConstants.all, style: .default , handler:{ (UIAlertAction)in
+            self.vm.refreshData()
+            self.tableView.reloadData()
+            self.height?.constant = 50*(CGFloat(self.vm.count))
+            self.showNoTask(totalTasks: self.vm.count)
+        }))
+        
+        alert.addAction(UIAlertAction(title: StringConstants.completed, style: .default , handler:{ (UIAlertAction)in
+            self.vm.completedTask()
+            self.tableView.reloadData()
+            self.height?.constant = 50*(CGFloat(self.vm.count))
+            self.showNoTask(totalTasks: self.vm.completedCount)
+        }))
+        
+        alert.addAction(UIAlertAction(title: StringConstants.pending, style: .default , handler:{ (UIAlertAction)in
+            self.vm.pendingTask()
+            self.tableView.reloadData()
+            self.height?.constant = 50*(CGFloat(self.vm.count))
+            self.showNoTask(totalTasks: self.vm.pendingCount)
+        }))
+        
+        alert.addAction(UIAlertAction(title: StringConstants.cancelAction, style: .default , handler:{ (UIAlertAction)in
+            self.dismiss(animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: {
+        })
+    }
+    
+    private func showNoTask(totalTasks: Int){
+        if totalTasks == 0{
+            addTask.isHidden = false
+        }
+        else{
+            addTask.isHidden = true
+        }
     }
 }
 
@@ -107,6 +183,5 @@ extension TodoListController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
     
 }

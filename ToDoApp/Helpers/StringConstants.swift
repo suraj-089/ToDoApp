@@ -23,6 +23,16 @@ class StringConstants{
     static let empty = "Please fill all the details"
     static let cancel = "Are you sure you want to cancel this?"
     static let ok = "OK"
+    static let filter = "Filter"
+    static let filterOption = "Please select a filter option"
+    static let completed = "completed"
+    static let pending = "pending"
+    static let all = "all"
+    static let cancelAction = "cancel"
+    static let sort = "Sort"
+    static let sortOption = "Please select an sort option"
+    static let name = "name"
+    static let time = "time"
 }
 
 class CellConstants{
