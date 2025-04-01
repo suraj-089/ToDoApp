@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		179B5DF52D9BA65F0003BD44 /* main.yml in Resources */ = {isa = PBXBuildFile; fileRef = 179B5DF42D9BA6570003BD44 /* main.yml */; };
 		EC0517EE2A25DC4400564228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0517ED2A25DC4400564228 /* Main.storyboard */; };
 		EC0517F02A26248C00564228 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0517EF2A26248C00564228 /* AddTaskViewController.swift */; };
 		EC78C9982A24DD5E009DDE6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78C9972A24DD5E009DDE6F /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		179B5DF42D9BA6570003BD44 /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = main.yml; sourceTree = "<group>"; };
 		EC0517ED2A25DC4400564228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EC0517EF2A26248C00564228 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		EC78C9942A24DD5E009DDE6F /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		179B5DF22D9BA63B0003BD44 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				179B5DF32D9BA6420003BD44 /* .workflows */,
+			);
+			path = .github;
+			sourceTree = "<group>";
+		};
+		179B5DF32D9BA6420003BD44 /* .workflows */ = {
+			isa = PBXGroup;
+			children = (
+				179B5DF42D9BA6570003BD44 /* main.yml */,
+			);
+			path = .workflows;
+			sourceTree = "<group>";
+		};
 		EC78C98B2A24DD5E009DDE6F = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +139,7 @@
 		EC78C9962A24DD5E009DDE6F /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				179B5DF22D9BA63B0003BD44 /* .github */,
 				EC78C9DF2A24F1AC009DDE6F /* CoreDataHelpers */,
 				EC78C9D22A24F1AB009DDE6F /* Extensions */,
 				EC78C9DA2A24F1AB009DDE6F /* Helpers */,
@@ -315,6 +334,7 @@
 				EC78C9A72A24DD60009DDE6F /* LaunchScreen.storyboard in Resources */,
 				EC78C9A42A24DD60009DDE6F /* Assets.xcassets in Resources */,
 				EC78C9CD2A24E4BA009DDE6F /* ToDoListTVC.xib in Resources */,
+				179B5DF52D9BA65F0003BD44 /* main.yml in Resources */,
 				EC0517EE2A25DC4400564228 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
